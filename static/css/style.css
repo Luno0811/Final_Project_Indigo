@@ -1,0 +1,74 @@
+/*lavender blush:#fff0f5, orange:#ffa500, honeydew:#f0fff0*/
+body {
+    color: black;
+    background-color: #ac4949;
+    margin: 10px auto;
+    padding: 0 0 50px 0;
+    display: block;
+    position: relative;
+    overflow-y: scroll;
+  }
+
+  nav {
+    opacity: 0.8;
+  }
+
+  nav:hover {
+    opacity: 1;
+    font-weight: 700;
+    background: linear-gradient(to right, rgb(23, 0, 128),#1371af,#5990cf,#92b7da);
+  }
+
+  div.well:hover {
+    background: #f0fff0;
+  }
+
+  div#sample-metadata.panel-body {
+    background: #f0fff0;
+  }
+
+  div.col-md-5:hover {
+    background: #f0fff0;
+  }
+  
+  div.col-md-12:hover {
+    background: #f0fff0;
+  }
+
+  .jumbotron {
+    background-image: url("../images/covid19_cell.png");
+    background-size: 33.33% auto;
+    text-align: center;
+  }
+
+  /* customize select tag */
+select {
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    border: solid;
+    border-radius: 0.5vw;
+    line-height: 1.5em;
+    margin-top: 10px;
+    /* padding: top | right | bottom | left */
+    padding: 0.2em 3em 0.2em 0.3em;
+    /* support standard & historical browsers Chrome/Safari/Edge/Firefox */
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-box-sizing: border-box;
+    -moz-appearance: none;
+  }
+
+  select.arrowUD {
+    background-image: url("../images/up_down_arrow.png");
+    background-position: 100%, 100% 0;
+    /* width:auto height:line-height + padding-top + padding-bottom */
+    background-size: auto calc(1.5em + 0.2em + 0.2em);
+    background-repeat: no-repeat;
+  }
+  
+  select.arrowUD:focus {
+    border-color: #663399;
+    outline: 0;
+  }
