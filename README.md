@@ -1,7 +1,7 @@
 # Covid-19 Vaccinations
 ![image](https://user-images.githubusercontent.com/111723067/214435454-0d983867-b753-427f-bf8d-bd6a5254b933.png)
 ## Overview
-Using Covid-19 vaccination data around the United States to answer multiple questions regarding the pandemic.
+Using Covid-19 vaccination data around the United States to answer multiple questions regarding the pandemic. This topic was selected because it is currently very relevant and has impacted everyone 's lives. This was also chosen because the results of the analysis can be useful in the real world.
 ## Data Sources:
 - https://www.kaggle.com/datasets/sandhyakrishnan02/united-states-covid19-vaccinations
 - https://www.kaggle.com/datasets/peretzcohen/2019-census-us-population-data-by-state
