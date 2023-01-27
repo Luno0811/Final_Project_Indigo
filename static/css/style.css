@@ -1,7 +1,8 @@
 /*lavender blush:#fff0f5, orange:#ffa500, honeydew:#f0fff0*/
 body {
-    color: black;
-    background-color: #ac4949;
+    color: rgb(250, 169, 169);
+    background-color: #49a6ac;
+    background-image: url("../images/covid19_vials.png");
     margin: 10px auto;
     padding: 0 0 50px 0;
     display: block;
@@ -44,6 +45,7 @@ body {
   /* customize select tag */
 select {
     background-color: rgb(255, 255, 255);
+    opacity: 1;
     display: inline-block;
     border: solid;
     border-radius: 0.5vw;

@@ -97,7 +97,7 @@ function buildCharts(sample) {
     // 9. Create the layout for the bar chart. 
     var barLayout = {
         hovermode: 'closest',
-        title: "Top 10 Bacteria Cultures Found",
+        title: "Vaccinations by State",
         xaxis: {title: "Sample Values"},
         yaxis: {title: "ID's"}
     };
@@ -150,11 +150,11 @@ Plotly.newPlot("bubble",bubbleData, bubbleLayout);
 //     }
 // }];
 
-// 5. Create the layout for the gauge chart.
-var gaugeLayout = {
-  width: 500, height: 350, 
-  margin: { l: 25, r: 25, t: 0, b: 0 }
-};
+// // 5. Create the layout for the gauge chart.
+// var gaugeLayout = {
+//   width: 500, height: 350, 
+//   margin: { l: 25, r: 25, t: 0, b: 0 }
+// };
 // 6. Use Plotly to plot the gauge data and layout.
 Plotly.newPlot("gauge", gaugeData, gaugeLayout);
 });
