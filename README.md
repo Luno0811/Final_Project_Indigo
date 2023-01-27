@@ -38,6 +38,5 @@ https://www.kaggle.com/datasets/peretzcohen/2019-census-us-population-data-by-st
 - Clean both data sets then combine them.
 - Create an HTML which will include a drop-down selection of vaccination statistics by day and by state.
 - Use supervised and unsupervised machine learning to answer the project questions.
-- HTML in progress: 
 ## Results
 We are predicting that there will be a need for redisitribution of vaccines based on use and scarcity accross the states. 
