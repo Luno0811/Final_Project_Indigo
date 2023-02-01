@@ -1,5 +1,5 @@
-// link to samples.json file 
-const url = "static/js/samples.json"
+// link to samples.json file for the data 
+const url = "static/js/json_data.json"
 
 function init() {
   // Grab a reference to the dropdown select element
@@ -7,7 +7,7 @@ function init() {
 
   // Use the list of sample names to populate the select options
   d3.json(url).then((data) => {
-    var sampleNames = data.names;
+    var states = data.states;
 
     sampleNames.forEach((sample) => {
       selector
@@ -37,7 +37,7 @@ function optionChanged(newSample) {
 // Demographics Panel 
 function buildMetadata(sample) {
   d3.json(url).then((data) => {
-    var metadata = data.metadata;
+    var record = data.date;
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
     var result = resultArray[0];
@@ -78,14 +78,14 @@ function buildCharts(sample) {
     console.log(otu_labels)
     console.log(sample_values)
 
-    // 7. Create the yticks for the bar chart.
+    // Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
-    //  so the otu_ids with the most bacteria are last. 
+    // so the otu_ids with the most bacteria are last. 
 
     var yticks = otu_ids.slice(0,10).map(id => `OTU` +id).reverse();
     console.log(yticks)
 
-    // 8. Create the trace for the bar chart. 
+    // Create the trace for the bar chart. 
     var barData = [{
       x: sample_values.slice(0,10).reverse(),
       y: yticks,
@@ -94,18 +94,18 @@ function buildCharts(sample) {
       orientation: 'h'
     }];
 
-    // 9. Create the layout for the bar chart. 
+    // Create the layout for the bar chart. 
     var barLayout = {
         hovermode: 'closest',
         title: "Vaccinations by State",
         xaxis: {title: "Sample Values"},
         yaxis: {title: "ID's"}
     };
-    // 10. Use Plotly to plot the data with the layout. 
+    // Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar",barData, barLayout);
 
-// 1. Create the trace for the bubble chart.
-var bubbleData = [{
+// Create the trace for the line chart.
+var lineData = [{
   x: otu_ids,
   y: sample_values,
   text: otu_labels,
@@ -117,8 +117,8 @@ var bubbleData = [{
   } 
 }];
 
-// 2. Create the layout for the bubble chart.
-var bubbleLayout = {
+// Create the layout for the line chart.
+var lineLayout = {
   hovermode: 'closest',
   title: "Bacteria Cultures per Sample",
   xaxis: {title: "Sample Values"},
@@ -126,36 +126,36 @@ var bubbleLayout = {
 };
 
 // 3. Use Plotly to plot the data with the layout.
-Plotly.newPlot("bubble",bubbleData, bubbleLayout);
+Plotly.newPlot("line",lineData, lineLayout);
 
-// 4. Create the trace for the gauge chart.
-// var gaugeData = [{
-//   type: 'indicator',
-//   mode: 'gauge+number',
-//   title: { text: "Belly Button Washing Frequency" },
-//   domain: { x: [0, 1], y: [0, 1] },
-//   value: wfreq,
-//   gauge: {
-//     axis: {range : [null,10], tickwidth: 1, tickcolor: "gray"},
-//     bar: { color: "black"},
-//     bgcolor: "white",
-//     borderwitdh: 1,
-//     steps: [
-//       { range: [0, 2], color: "red" },
-//       { range: [2, 4], color: "orange" },
-//       { range: [4, 6], color: "yellow" },
-//       { range: [6, 8], color: "limegreen" },
-//       { range: [8, 10], color: "green" }
-//     ],
-//     }
-// }];
+// 4. Create the trace for the pie chart.
+var pieData = [{
+  type: 'indicator',
+  mode: 'pie+number',
+  title: { text: "Belly Button Washing Frequency" },
+  domain: { x: [0, 1], y: [0, 1] },
+  value: wfreq,
+  pie: {
+    axis: {range : [null,10], tickwidth: 1, tickcolor: "gray"},
+    bar: { color: "black"},
+    bgcolor: "white",
+    borderwitdh: 1,
+    steps: [
+      { range: [0, 2], color: "red" },
+      { range: [2, 4], color: "orange" },
+      { range: [4, 6], color: "yellow" },
+      { range: [6, 8], color: "limegreen" },
+      { range: [8, 10], color: "green" }
+    ],
+    }
+}];
 
-// // 5. Create the layout for the gauge chart.
-// var gaugeLayout = {
-//   width: 500, height: 350, 
-//   margin: { l: 25, r: 25, t: 0, b: 0 }
-// };
-// 6. Use Plotly to plot the gauge data and layout.
-Plotly.newPlot("gauge", gaugeData, gaugeLayout);
+// // Create the layout for the pie chart.
+var pieLayout = {
+  width: 500, height: 350, 
+  margin: { l: 25, r: 25, t: 0, b: 0 }
+};
+//  Use Plotly to plot the pie data and layout.
+Plotly.newPlot("pie", pieData, pieLayout);
 });
 }
