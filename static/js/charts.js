@@ -1,26 +1,27 @@
-// link to samples.json file 
-const url = "static/js/samples.json"
+// link to samples.json file for the data 
+const url = "static/js/json_data.json"
 
 function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
+  var selectorTwo = d3.select("#selDataset2");
 
   // Use the list of sample names to populate the select options
   d3.json(url).then((data) => {
-    var sampleNames = data.names;
-
-    sampleNames.forEach((sample) => {
-      selector
-        .append("option")
-        .text(sample)
-        .property("value", sample);
+    console.log(data);
+    var recordLocation = data.locations;
+    var recordDate = data.dates;
+    recordLocation.forEach((location) => {
+      selector.append("option").text(location).property("value", location);
     });
-
+    recordDate.forEach((date) => {
+      selectorTwo.append("option").text(date).property("value", date);
+    });
     // Use the first sample from the list to build the initial plots
-    var firstSample = sampleNames[0];
-    console.log(firstSample);
-    buildCharts(firstSample);
-    buildMetadata(firstSample);
+    var firstLocation = recordLocation[0]
+    var firstDate = recordDate[0];
+    buildCharts(firstLocation, firstDate);
+    buildMetadata(firstLocation, firstDate);
   });
 }
 
@@ -34,12 +35,12 @@ function optionChanged(newSample) {
 
 }
 
-// Demographics Panel 
-function buildMetadata(sample) {
-  d3.json(url).then((data) => {
-    var metadata = data.metadata;
+// Record Data Panel 
+function buildMetadata(location, date) {
+  d3.json("json_data.json").then((data) => {
+    var records = data.records;
     // Filter the data for the object with the desired sample number
-    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var resultArray = records.filter((sampleObj) => sampleObj.location == location && sampleObj.date == date);
     var result = resultArray[0];
     // Use d3 to select the panel with id of `#sample-metadata`
     var PANEL = d3.select("#sample-metadata");
@@ -56,57 +57,49 @@ function buildMetadata(sample) {
   });
 }
 
-// 1. Create the buildCharts function.
+// Create the buildCharts function.
 function buildCharts(sample) {
-  // 2. Use d3.json to load and retrieve the samples.json file 
+  // Use d3.json to load and retrieve the samples.json file 
   d3.json(url).then((data) => {
-    // 3. Create a variable that holds the samples array. 
+    // Create a variable that holds the samples array. 
     let samples = data.samples;
-    // 4. Create a variable that filters the samples for the object with the desired sample number.
+    // Create a variable that filters the samples for the object with the desired sample number.
     let sampleArray = samples.filter(sampleObj => sampleObj.id == sample);
-    //  5. Create a variable that holds the first sample in the array.
+    // Create a variable that holds the first sample in the array.
     let firstSample = sampleArray[0];
     let result = data.metadata.filter(sampleObj => sampleObj.id == sample)[0];
     
-    // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
-    let otu_ids = firstSample.otu_ids;
-    let otu_labels = firstSample.otu_labels;
-    let sample_values = firstSample.sample_values;
-    // Adding variable for washing frequency
-    let wfreq = result.wfreq;
-    console.log(otu_ids)
-    console.log(otu_labels)
-    console.log(sample_values)
+    // Create variables for the vaccinations data.
+    let states = firstSample.states;
+    let vaccinations_total = firstSample.vaccinations_total;
+    let distributed_vaxs = firstSample.distributed_vaxs;
 
-    // 7. Create the yticks for the bar chart.
-    // Hint: Get the the top 10 otu_ids and map them in descending order  
-    //  so the otu_ids with the most bacteria are last. 
-
-    var yticks = otu_ids.slice(0,10).map(id => `OTU` +id).reverse();
+    // Create the yticks for the bar chart.
+    var yticks = states.slice(0,10).map(id => `States` +id).reverse();
     console.log(yticks)
 
-    // 8. Create the trace for the bar chart. 
+    // Create the trace for the bar chart. 
     var barData = [{
       x: sample_values.slice(0,10).reverse(),
       y: yticks,
-      text: otu_labels,
+      text: vaccinations_total,
       type:'bar',
       orientation: 'h'
     }];
 
-    // 9. Create the layout for the bar chart. 
+    // Create the layout for the bar chart. 
     var barLayout = {
         hovermode: 'closest',
         title: "Vaccinations by State",
-        xaxis: {title: "Sample Values"},
-        yaxis: {title: "ID's"}
+        xaxis: {title: "States"},
+        yaxis: {title: "Fully Vaccinated"}
     };
-    // 10. Use Plotly to plot the data with the layout. 
+    // Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar",barData, barLayout);
 
-// 1. Create the trace for the bubble chart.
-var bubbleData = [{
-  x: otu_ids,
+// Create the trace for the line chart.
+var lineData = [{
+  x: states,
   y: sample_values,
   text: otu_labels,
   mode: 'markers',
@@ -117,45 +110,60 @@ var bubbleData = [{
   } 
 }];
 
-// 2. Create the layout for the bubble chart.
-var bubbleLayout = {
+// Create the layout for the line chart.
+var lineLayout = {
   hovermode: 'closest',
-  title: "Bacteria Cultures per Sample",
-  xaxis: {title: "Sample Values"},
-  yaxis: {title: "ID's"}  
+  title: "Fully vaccinated in the United States",
+  xaxis: {title: "Fully Vaccinated"},
+  yaxis: {title: "US population by State"}  
 };
 
-// 3. Use Plotly to plot the data with the layout.
-Plotly.newPlot("bubble",bubbleData, bubbleLayout);
+// Use Plotly to plot the data with the layout.
+Plotly.newPlot("line",lineData, lineLayout);
 
-// 4. Create the trace for the gauge chart.
-// var gaugeData = [{
-//   type: 'indicator',
-//   mode: 'gauge+number',
-//   title: { text: "Belly Button Washing Frequency" },
-//   domain: { x: [0, 1], y: [0, 1] },
-//   value: wfreq,
-//   gauge: {
-//     axis: {range : [null,10], tickwidth: 1, tickcolor: "gray"},
-//     bar: { color: "black"},
-//     bgcolor: "white",
-//     borderwitdh: 1,
-//     steps: [
-//       { range: [0, 2], color: "red" },
-//       { range: [2, 4], color: "orange" },
-//       { range: [4, 6], color: "yellow" },
-//       { range: [6, 8], color: "limegreen" },
-//       { range: [8, 10], color: "green" }
-//     ],
-//     }
-// }];
+// Creating the Pie chart
+anychart.onDocumentReady(function() {
 
-// // 5. Create the layout for the gauge chart.
-// var gaugeLayout = {
-//   width: 500, height: 350, 
-//   margin: { l: 25, r: 25, t: 0, b: 0 }
-// };
-// 6. Use Plotly to plot the gauge data and layout.
-Plotly.newPlot("gauge", gaugeData, gaugeLayout);
+  // set the data
+  var data = [
+      {x: "", value: 8},
+      {x: "", value: 8},
+      {x: "", value: 8},
+      {x: "", value: 8},
+      {x: "", value: 8},
+      {x: "", value: 1},
+      {x: "", value: 9}
+  ];
+
+  // create the  pie chart
+  var chart = anychart.pie();
+
+  // set the chart title
+  chart.title("Wasted Vaccination dosages in each state");
+
+  // add the data
+  chart.data(data);
+
+  // sort elements
+  chart.sort("desc");  
+  
+  // set legend position
+  chart.legend().position("right");
+  // set items layout
+  chart.legend().itemsLayout("vertical");  
+
+  // display the chart in the container
+  chart.container('container');
+  chart.draw();
+
+});
+
+// // Create the layout for the pie chart.
+var pieLayout = {
+  width: 500, height: 350, 
+  margin: { l: 25, r: 25, t: 0, b: 0 }
+};
+//  Use Plotly to plot the pie data and layout.
+Plotly.newPlot("pie", pieData, pieLayout);
 });
 }

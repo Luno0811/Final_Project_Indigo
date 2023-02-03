@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Covid-19 Vaccinations rates over time</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <style>
+    select{color: salmon;}
+    h5{color: navy;}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="navbar navbar-toggleable-md navbar-inverse navbar-fixed-bottom">
+      <ul class="nav navbar-nav">
+        <li class="nav-item active"><a class="navbar-brand" href="index.html" title="Belly Button Biodiversity Home" style="font-size:20px; text-align:center;">&#8962;</a></li>
+        <li class="nav-item"><a class="navbar-brand" href="#selDataset" title="Jump to State Selector">State Selector</a></li>
+        <li class="nav-item"><a class="navbar-brand" href="#aboutBar" title="Jump to Bar Graphs">Bar Graphs</a></li>
+        <li class="nav-item"><a class="navbar-brand" href="#aboutGauge" title="Jump to Line Graphs">Line Graphs</a></li>
+        <li class="nav-item"><a class="navbar-brand" href="#aboutBubble" title="Jump to Pie Graphs">Pie Graphs</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1 id="ffFan"><b>Covid-19 Vaccinations distributed in the United States</b></h1>
+        <h2 id="ffFan"><b>by Dania Abdulrahman, Ross Halley, and Sal Valiaparampil</b></h2>
+        <p>Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="well">
+          <h5>Vaccinations by States.</h5>
+          <!-- <select id="selDataset"></select> -->
+          <select class="arrowUD" id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Record Info</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body" onchange="this.parentNode.style.backgroundColor=this.value"></div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div id="bar"></div>
+        <a href="#top" title="Return to Top">&#8962;</a>
+      </div>
+      <div class="col-md-5">
+        <div id="line"></div>
+        <a href="#top" title="Return to Top">&#8962;</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="pie"></div>
+        <a href="#top" title="Return to Top">&#8962;</a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!--<script src="plots.js"></script>-->
+  <script src ="vax_data.js"></script>
+
+</body>
+</html>
