@@ -45,10 +45,10 @@ https://www.kaggle.com/datasets/peretzcohen/2019-census-us-population-data-by-st
 ## Machine learning Process
 - We plan to classify any record where share dosages used are under a certain percentage as "high percentage wasted" and under a certain percentage as "low percentage wasted" and then train the model to predict which one for that record based off of the data.
 
-function init() {
-  // Grab a reference to the dropdown select element
+function init() {  
+- Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
-  // Use the list of sample names to populate the select options
+- Use the list of sample names to populate the select options
   d3.json("json_data.json").then((data) => {
     console.log(data);
     var recordLocation = data.locations;
@@ -59,7 +59,7 @@ function init() {
     recordDate.forEach((date) => {
       selector.append("option").text(date).property("value", date);
     });
-    // Use the first sample from the list to build the initial plots
+- Use the first sample from the list to build the initial plots
     var firstLocation = recordLocation[0]
     var firstDate = recordDate[0];
     buildCharts(firstLocation, firstDate);
