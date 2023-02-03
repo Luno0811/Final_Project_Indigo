@@ -1,20 +1,26 @@
 function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
+  var selectorTwo
 
   // Use the list of sample names to populate the select options
   d3.json("json_data.json").then((data) => {
     console.log(data);
-    var recordData = data.records;
+    var recordLocation = data.locations;
+    var recordDate = data.dates;
 
-    recordData.forEach((record) => {
-      selector.append("option").text(record).property("value", record);
+    recordLocation.forEach((location) => {
+      selector.append("option").text(location).property("value", location);
+    });
+    recordDate.forEach((date) => {
+      selectorTwo.append("option").text(date).property("value", date);
     });
 
     // Use the first sample from the list to build the initial plots
-    var firstRecord = recordData[0];
-    buildCharts(firstRecord);
-    buildMetadata(firstRecord);
+    var firstLocation = recordLocation[0]
+    var firstDate = recordDate[0];
+    buildCharts(firstLocation, firstDate);
+    buildMetadata(firstLocation, firstDate);
   });
 }
 
@@ -28,11 +34,11 @@ function optionChanged(newRecord) {
 }
 
 //Possibly not needed
-function buildMetadata(record) {
+function buildMetadata(location, date) {
   d3.json("json_data.json").then((data) => {
     var records = data.records;
     // Filter the data for the object with the desired sample number
-    var resultArray = metadata.filter((sampleObj) => sampleObj.id == sample);
+    var resultArray = records.filter((sampleObj) => (sampleObj.location == location && sampleObj.date == date));
     var result = resultArray[0];
 
     // Use d3 to select the panel with id of `#sample-metadata`
@@ -51,7 +57,7 @@ function buildMetadata(record) {
 } 
 
 // Deliverable 1: 1. Create the buildChart function.
-function buildCharts(record) {
+function buildCharts(location, date) {
   // Deliverable 1: 2. Use d3.json to load the samples.json file
   d3.json("json_data.json").then((data) => {
     console.log(data);
@@ -70,7 +76,7 @@ function buildCharts(record) {
     // Deliverable 1: 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var total_vaccinations = records.total_vaccinations;
     var total_distributed = records.total_distributed;
-    var people_vaccinated = sampleResult.people_vaccinated;
+    var people_vaccinated = record.people_vaccinated;
     var people_fully_vaccinated = records.people_fully_vaccinated;
     var state_population = records.state_population;
     var unused_doses = records.unused_doses;
