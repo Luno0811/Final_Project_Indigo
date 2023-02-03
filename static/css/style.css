@@ -1,6 +1,6 @@
 /*lavender blush:#fff0f5, orange:#ffa500, honeydew:#f0fff0*/
 body {
-    color: rgb(250, 169, 169);
+    color: rgb(167, 167, 167);
     background-color: #49a6ac;
     background-image: url("../images/covid19_vials.png");
     margin: 10px auto;
@@ -37,7 +37,6 @@ body {
   }
 
   .jumbotron {
-    background-image: url("../images/covid19_cell.png");
     background-size: 33.33% auto;
     text-align: center;
   }

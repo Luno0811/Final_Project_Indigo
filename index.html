@@ -14,6 +14,7 @@
   </style>
 </head>
 <body>
+  <!-- Below this is the navigation bar the redirects users toe which grpah the want to view-->
   <div class="wrapper">
     <nav class="navbar navbar-toggleable-md navbar-inverse navbar-fixed-bottom">
       <ul class="nav navbar-nav">
@@ -26,6 +27,7 @@
     </nav>
   </div>
   <div class="container">
+    <!--Below is the Title part for our site. -->
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1 id="ffFan"><b>Covid-19 Vaccinations distributed in the United States</b></h1>
@@ -33,39 +35,55 @@
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
+    <!--Title part ends -->
     <div class="row">
       <div class="col-md-2">
-        <div class="well">
-          <h5>Vaccinations by States.</h5>
-          <!-- <select id="selDataset"></select> -->
-          <select class="arrowUD" id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
+        <!--This is the drop down box for states below this comment-->
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
+          <h5 class="panel-title">Vaccinations by States.</h5>
           </div>
-          <div id="sample-metadata" class="panel-body" onchange="this.parentNode.style.backgroundColor=this.value"></div>
+          <!-- <select id="selDataset"></select> (below this is the function for the drop down) -->
+          <select class="arrowUD" id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
+        <!--drop down box for states ends-->
+        <!--This is the drop down box for dates below this comment-->
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+          <h5 class="panel-title">Vaccinations by Date.</h5>
+          </div>
+          <!-- <select id="selDataset"></select> (below this is the function for the drop down) -->
+          <select class="arrowUD" id="selDataset2" onchange="optionChanged(this.value)"></select>
+        </div>
+        <!--Drop down box for dates ends-->
+        <!--This is the drop down box for whatever we need to put next (pie graph?) below this comment-->
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Record Data</h3>
+          </div>
+          <select class="arrowUD" id="sample-metadata" class="panel-body" onchange="this.parentNode.style.backgroundColor=this.value"></div>
+        </div>
+        <!--This is the drop down box for whatever we need to put next (pie graph?) ends-->
       </div>
       <div class="col-md-5">
         <div id="bar"></div>
         <a href="#top" title="Return to Top">&#8962;</a>
       </div>
       <div class="col-md-5">
-        <div id="gauge"></div>
+        <div id="pie"></div>
         <a href="#top" title="Return to Top">&#8962;</a>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div id="bubble"></div>
+        <div id="line"></div>
         <a href="#top" title="Return to Top">&#8962;</a>
       </div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <!--<script src="plots.js"></script>-->
+  <!--<script src="plots.js"></script> belowe is the where we conenct the charts file to the site-->
   <script src ="static/js/charts.js"></script>
 
 </body>
