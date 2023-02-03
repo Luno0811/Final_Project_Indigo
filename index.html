@@ -53,15 +53,15 @@
           <h5 class="panel-title">Vaccinations by Date.</h5>
           </div>
           <!-- <select id="selDataset"></select> (below this is the function for the drop down) -->
-          <select class="arrowUD" id="selDataset" onchange="optionChanged(this.value)"></select>
+          <select class="arrowUD" id="selDataset2" onchange="optionChanged(this.value)"></select>
         </div>
         <!--Drop down box for dates ends-->
         <!--This is the drop down box for whatever we need to put next (pie graph?) below this comment-->
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
+            <h3 class="panel-title">Record Data</h3>
           </div>
-          <div id="sample-metadata" class="panel-body" onchange="this.parentNode.style.backgroundColor=this.value"></div>
+          <select class="arrowUD" id="sample-metadata" class="panel-body" onchange="this.parentNode.style.backgroundColor=this.value"></div>
         </div>
         <!--This is the drop down box for whatever we need to put next (pie graph?) ends-->
       </div>
@@ -70,13 +70,13 @@
         <a href="#top" title="Return to Top">&#8962;</a>
       </div>
       <div class="col-md-5">
-        <div id="gauge"></div>
+        <div id="pie"></div>
         <a href="#top" title="Return to Top">&#8962;</a>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div id="bubble"></div>
+        <div id="line"></div>
         <a href="#top" title="Return to Top">&#8962;</a>
       </div>
     </div>
