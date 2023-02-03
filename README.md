@@ -41,34 +41,20 @@ https://www.kaggle.com/datasets/peretzcohen/2019-census-us-population-data-by-st
 
 ## Current Progress
 - A Tableau visual is being created which displays charts and graphs regarding the questions to answer about the project.
--  Share doses used is a column that lists percentage of doses that have been used against the total distributed.
+
 ## Machine learning Process
 - We plan to classify any record where share dosages used are under a certain percentage as "high percentage wasted" and under a certain percentage as "low percentage wasted" and then train the model to predict which one for that record based off of the data.
 
 function init() {  
 - Grab a reference to the dropdown select element
-  var selector = d3.select("#selDataset");
-- Use the list of sample names to populate the select options
-  d3.json("json_data.json").then((data) => {
-    console.log(data);
-    var recordLocation = data.locations;
-    var recordDate = data.dates;
-    recordLocation.forEach((location) => {
-      selector.append("option").text(location).property("value", location);
-    });
-    recordDate.forEach((date) => {
-      selector.append("option").text(date).property("value", date);
-    });
-- Use the first sample from the list to build the initial plots
-    var firstLocation = recordLocation[0]
-    var firstDate = recordDate[0];
-    buildCharts(firstLocation, firstDate);
-    buildMetadata(firstLocation, firstDate);
-  });
 
+- Use the list of sample names to populate the select options
+
+- Use the first sample from the list to build the initial plots
+  
 ## HTML
 - The javascript file which makes the charts and graphs is being edited to work with our cleaned and organized data.
-
+![HTML progress](https://user-images.githubusercontent.com/111723067/216503827-5b15ab1c-d6b7-4de9-be09-eeb2a98fe48f.png)
 
 
 ## Results
