@@ -44,8 +44,7 @@ https://www.kaggle.com/datasets/peretzcohen/2019-census-us-population-data-by-st
 
 ## Machine learning Process
 - We plan to classify any record where share dosages used are under a certain percentage as "high percentage wasted" and under a certain percentage as "low percentage wasted" and then train the model to predict which one for that record based off of the data.
-
-function init() {  
+ 
 - Grab a reference to the dropdown select element
 
 - Use the list of sample names to populate the select options
