@@ -37,13 +37,13 @@ function optionChanged(newSample) {
 
 // Record Data Panel 
 function buildMetadata(location, date) {
-  d3.json("json_data.json").then((data) => {
+  d3.json(url).then((data) => {
     var records = data.records;
     // Filter the data for the object with the desired sample number
     var resultArray = records.filter((sampleObj) => sampleObj.location == location && sampleObj.date == date);
     var result = resultArray[0];
-    // Use d3 to select the panel with id of `#sample-metadata`
-    var PANEL = d3.select("#sample-metadata");
+    // Use d3 to select the panel with id of `sample-metadata`
+    var PANEL = d3.select("sample-metadata");
 
     // Use `.html("") to clear any existing metadata
     PANEL.html("");
@@ -80,7 +80,7 @@ function buildCharts(sample) {
 
     // Create the trace for the bar chart. 
     var barData = [{
-      x: sample_values.slice(0,10).reverse(),
+      x: states.slice(0,10).reverse(),
       y: yticks,
       text: vaccinations_total,
       type:'bar',
