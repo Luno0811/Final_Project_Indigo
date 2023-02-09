@@ -14,10 +14,8 @@ This topic was selected because it is currently very relevant and has impacted e
 ## Data Sources:
 - We found our data set through Kaggle. We found the collection of data in the set very handy because it included total vaccinations, total distributed, total boosters, total wasted, and all were categorized by state and date by day from the year 2021 to beginning of 2023. 
 - One factor that was missing from our data set was population by state, which is crucial for putting the data in perspective, and properly analyzing vaccination and waste patterns. This led us to another data set which had what we were looking for.
-- The data sets:
-https://www.kaggle.com/datasets/sandhyakrishnan02/united-states-covid19-vaccinations
-
-https://www.kaggle.com/datasets/peretzcohen/2019-census-us-population-data-by-state
+- https://www.kaggle.com/datasets/sandhyakrishnan02/united-states-covid19-vaccinations
+- https://www.kaggle.com/datasets/peretzcohen/2019-census-us-population-data-by-state
 
 ## Process
 ### Data
