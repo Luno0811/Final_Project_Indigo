@@ -24,11 +24,11 @@ This topic was selected because it is currently very relevant and has impacted e
 
 ### Tableau
 - Population: We are showing this visual to make it clear that there are some states in the US significantly more populated than others, such as Texas, California, Florida and NY state. This helps clarify why data is much bigger for those states.
-- 
+
 ![image](https://user-images.githubusercontent.com/111723067/217965248-329a3328-39c9-42ff-9ef1-5f136a393684.png)
 
 - Unused Doses Per State: This graph shows us a side-by-side of total distributed vs total unused doses. CA has the highest number of unused doses, but is also the most populated. The lowest waste is by smaller states such as islands in America, which are also not very populated.
-- 
+
 ![image](https://user-images.githubusercontent.com/111723067/217965440-e12dcb49-88a9-4183-b813-3a465f3a0bad.png)
 
 - People Fully Vaccinated Per State: This graph shows us vaccinations per state INCLUDING booster shots, we see that California has the highest amount as expected. 
