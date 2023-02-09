@@ -76,60 +76,77 @@ function buildCharts(location, date) {
     let total_distributed = result.total_distributed;
     let unused_doses = result.unused_doses;
     let people_vaccinated = result.people_vaccinated;
-    let daily_vaccinations = result.daily_vaccinations;
 
-    var bar_x_ticks = [total_vaccinations, total_distributed, unused_doses, people_vaccinated, daily_vaccinations]
+    var bar_x_ticks = [total_vaccinations, total_distributed, unused_doses, people_vaccinated]
+    var bar_y_ticks = ["Total Vaccinations", "Toal Distributed", "Unused Doses", "People Vaccinated"]
 
     // Create date array for line chart
     var line_x_ticks = data.dates;
     var line_y_ticks = [];
+    var line_y_ticks2 = [];
+    var line_y_ticks3 = [];
     stateArray.forEach((date) => {
       line_y_ticks.push(date.people_fully_vaccinated);
     });
+    stateArray.forEach((date) => {
+      line_y_ticks2.push(date.unused_doses);
+    });
+    stateArray.forEach((date) => {
+      line_y_ticks3.push(date.state_population);
+    });
     console.log(line_y_ticks);
+    console.log(line_y_ticks2);
     // Create the trace for the bar chart. 
 
 
     var barData = [{
       x: bar_x_ticks,
-      y: 'Total',
+      y: bar_y_ticks,
       type:'bar',
-      orientation: 'h'
+      orientation: "h"
     }];
 
     // Create the layout for the bar chart. 
     var barLayout = {
         hovermode: 'closest',
         title: "Vaccinations by State",
-        xaxis: {title: "States"},
-        yaxis: {title: "Fully Vaccinated"}
+        xaxis: {title: "State"},
+        yaxis: {title: "Data"}
     };
     // Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar",barData, barLayout);
 
     // Create the trace for the line chart.
-    var lineData = [{
+    var lineData = {
       x: line_x_ticks,
       y: line_y_ticks,
-      /*text: otu_labels,
-      mode: 'markers',
-      marker: {
-        size: sample_values,
-        color: otu_ids,
-        colorscale: 'Earth'
-      }*/
-    }];
+      type: 'line',
+    };
+
+    var lineData2 = {
+      x: line_x_ticks,
+      y: line_y_ticks2,
+      type: 'line',
+    };
+
+    var lineData3 = {
+      x: line_x_ticks,
+      y: line_y_ticks3,
+      type: 'line',
+    };
+
+    var lineDataFinal = [lineData, lineData2, lineData3]
 
     // Create the layout for the line chart.
     var lineLayout = {
       hovermode: 'closest',
-      title: "Fully vaccinated in the United States",
+      title: "Fully vaccinated and Wasted Doses",
       xaxis: {title: "Date"},
-      yaxis: {title: "State population fully vaccinated"}  
+      yaxis: {title: "Amount"}  
     };
 
     // Use Plotly to plot the data with the layout.
-    Plotly.newPlot("line", lineData, lineLayout);
+    Plotly.newPlot("line", lineDataFinal, lineLayout);
 
 });
 }
