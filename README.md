@@ -24,11 +24,28 @@ This topic was selected because it is currently very relevant and has impacted e
 
 ### Tableau
 - Population: We are showing this visual to make it clear that there are some states in the US significantly more populated than others, such as Texas, California, Florida and NY state. This helps clarify why data is much bigger for those states.
+- 
+![image](https://user-images.githubusercontent.com/111723067/217965248-329a3328-39c9-42ff-9ef1-5f136a393684.png)
+
 - Unused Doses Per State: This graph shows us a side-by-side of total distributed vs total unused doses. CA has the highest number of unused doses, but is also the most populated. The lowest waste is by smaller states such as islands in America, which are also not very populated.
+- 
+![image](https://user-images.githubusercontent.com/111723067/217965440-e12dcb49-88a9-4183-b813-3a465f3a0bad.png)
+
 - People Fully Vaccinated Per State: This graph shows us vaccinations per state INCLUDING booster shots, we see that California has the highest amount as expected. 
+
+![image](https://user-images.githubusercontent.com/111723067/217965736-80cdc812-8caa-4d7a-9cab-4453a34ab15a.png)
+
 - Total Vaccinations vs. Total Distributed per State: This graph shows us the other side of the story, how many vaccines were administered from the ones distributed per state. We see that NY state by percentage used the most of their vaccines in comparison to the other densely populated states.
+
+![image](https://user-images.githubusercontent.com/111723067/217966001-9b29e0c4-007b-479d-b3db-2cb42f85f7da.png)
+
 - People Vaccinated by Date (LINE): This line graph shows the consistency of people getting vaccinations over 3 years, from December of 2020 to January of 2023. We see an initial spike at the time where the pandemic had just begun to spread. We also see that June of 2022 had the lowest vaccination rates. Overall, no dramatic changes other than the initial spike.
+
+![image](https://user-images.githubusercontent.com/111723067/217966054-edd9afb3-60f3-4528-ab45-e6737a9f4849.png)
+
 - Boosters Administered by Date(LINE): This line graph shows a similar pattern except it was started later due to boosters being administered later than the first initial vaccine. We also see that June of 2022 had the lowest amount of boosters administered compared to the rest of the timeline. 
+
+![image](https://user-images.githubusercontent.com/111723067/217966106-d661c2fa-3bb4-4f1e-a060-02fbe1fd00ec.png)
 
 ### HTML
 - Using Javascript, the website was made to include 2 drop down menus, one by date and another by state.
