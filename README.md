@@ -18,9 +18,15 @@ This topic was selected because it is currently very relevant and has impacted e
 - https://www.kaggle.com/datasets/peretzcohen/2019-census-us-population-data-by-state
 
 ## Process
-### Data
+### Data Exploration
 - First step of the process after finding the data is cleaning and combining the two data sets.
 - Cleaning was done through Jupyter Notebook by first understanding the data types of each column and changing them if necessary, as well as using drop function to remove unwanted columns.
+- Once the data was combined, we looked through the data and made some exploratory graphs to notice trends in the data. The first thing we noticed was to
+help answer our top question of who is wasting and who is using, is that we should add a unused doses column
+- After, we plotted line graphs of total people fully vaccinated versus wasted doses against the total population by state, and immediately saw two large areas
+that we thought were affecting wastage; state population, and political alignment.
+- When the planned to create both a Tableau presentation for a general sense of the data, and also an interactive HTML page with options for filtering the data 
+yourself
 
 ### Tableau
 - Population: We are showing this visual to make it clear that there are some states in the US significantly more populated than others, such as Texas, California, Florida and NY state. This helps clarify why data is much bigger for those states.
@@ -49,7 +55,10 @@ This topic was selected because it is currently very relevant and has impacted e
 
 ### HTML
 - Using Javascript, the website was made to include 2 drop down menus, one by date and another by state.
-- Once a date and state is selected, the drop down menus create multiple visuals through the dataset. 
+- Once a date and state is selected, the drop down menus create multiple visuals through the dataset.
+  - Populates a bar graph with vaccination data including distributed and wasted doses, as well as vaccinations
+  - Generates full record data for the date and state
+  - Generates a line graph for that state over the whole time period showing that states overall trends in vaccinated versus wasted doses against total population
 
 ![image](https://user-images.githubusercontent.com/111723067/217967729-431058c3-392d-44a9-802b-6b2bc09b09fc.png)
 
