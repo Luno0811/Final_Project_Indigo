@@ -1,4 +1,6 @@
 # Covid-19 Vaccinations Distribution across the U.S.
+## By: Salil Valiaparampil, Ross Halley, & Dania Abdulrahman
+
 ![image](https://user-images.githubusercontent.com/111723067/214435454-0d983867-b753-427f-bf8d-bd6a5254b933.png)
 
 ### Why?
@@ -65,25 +67,18 @@ yourself
 ![image](https://user-images.githubusercontent.com/111723067/217967672-7fc5b3c1-2877-4506-8305-378cf7c315b0.png)
 
 ### Machine Learning
-Machine Learning Model
 
-Initial Analysis
-
-For the machine learning model, to reduce our data to a yes/no question we could fit a model too, we looked at the share doses used value.
+- Initial Analysis: For the machine learning model, to reduce our data to a yes/no question we could fit a model too, we looked at the share doses used value.
 The faster a state used their distributed doses, the less they would waste future doses of vaccine was the logic, so we picked 0.7 as
 a value and changed our data set to label any time a state had spent under 0.7 share doses used as a "waster" of doses and the time
 spent above 0.7 as a "user" of doses; we then set about making a model to predict which one a state would be by date given the data.
 
-Model
-
-For the model, after changing the share doses used data into the binary choice we wanted, we then encoded the data we would use to train 
+- Model: For the model, after changing the share doses used data into the binary choice we wanted, we then encoded the data we would use to train 
 our model and dropped meaningless columns as well as columns that would have given our model an unfair advantage. We then did a train
 test split, resampled the data with a Random Forst Classifier, than ran it it to produce a confusion matrix and accuracy score.
 We also populated an array of features that were most helpful in the learning process.
 
-Summary 
-
-The model ended up being highly accurate at 0.7 being the divide between waster states and user states, scoring 98% accuracy.
+- Summary: The model ended up being highly accurate at 0.7 being the divide between waster states and user states, scoring 98% accuracy.
 Run at a couple other values it never dipped lower than 96% accuracy. The most useful feature ended up being doses distributed per hundred
 and total vaccinations per hundred, with a lot of the boost and national data not being as useful to the model. Surprisingly, population
 was of medium high importance, leading us to belive that logistics might be a big part of wasted doses and larger states might have more 
