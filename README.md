@@ -51,6 +51,10 @@ This topic was selected because it is currently very relevant and has impacted e
 - Using Javascript, the website was made to include 2 drop down menus, one by date and another by state.
 - Once a date and state is selected, the drop down menus create multiple visuals through the dataset. 
 
+![image](https://user-images.githubusercontent.com/111723067/217967729-431058c3-392d-44a9-802b-6b2bc09b09fc.png)
+
+![image](https://user-images.githubusercontent.com/111723067/217967672-7fc5b3c1-2877-4506-8305-378cf7c315b0.png)
+
 ### Machine Learning
 - We plan to classify any record where share dosages used are under a certain percentage as "high percentage wasted" and under a certain percentage as "low percentage wasted" and then train the model to predict which one for that record based off of the data. For instance, If waste percentage is above 60%, we conclude that it is a high waste state with lots of unused vaccines that could be distrubuted elsewhere.
 
