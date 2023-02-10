@@ -56,13 +56,29 @@ This topic was selected because it is currently very relevant and has impacted e
 ![image](https://user-images.githubusercontent.com/111723067/217967672-7fc5b3c1-2877-4506-8305-378cf7c315b0.png)
 
 ### Machine Learning
-- We plan to classify any record where share dosages used are under a certain percentage as "high percentage wasted" and under a certain percentage as "low percentage wasted" and then train the model to predict which one for that record based off of the data. For instance, If waste percentage is above 60%, we conclude that it is a high waste state with lots of unused vaccines that could be distrubuted elsewhere.
+Machine Learning Model
 
--  We grab a reference to the dropdown select element
+Initial Analysis
 
-- Use the list of sample names to populate the select options
+For the machine learning model, to reduce our data to a yes/no question we could fit a model too, we looked at the share doses used value.
+The faster a state used their distributed doses, the less they would waste future doses of vaccine was the logic, so we picked 0.7 as
+a value and changed our data set to label any time a state had spent under 0.7 share doses used as a "waster" of doses and the time
+spent above 0.7 as a "user" of doses; we then set about making a model to predict which one a state would be by date given the data.
 
-- Use the first sample from the list to build the initial plots
+Model
+
+For the model, after changing the share doses used data into the binary choice we wanted, we then encoded the data we would use to train 
+our model and dropped meaningless columns as well as columns that would have given our model an unfair advantage. We then did a train
+test split, resampled the data with a Random Forst Classifier, than ran it it to produce a confusion matrix and accuracy score.
+We also populated an array of features that were most helpful in the learning process.
+
+Summary 
+
+The model ended up being highly accurate at 0.7 being the divide between waster states and user states, scoring 98% accuracy.
+Run at a couple other values it never dipped lower than 96% accuracy. The most useful feature ended up being doses distributed per hundred
+and total vaccinations per hundred, with a lot of the boost and national data not being as useful to the model. Surprisingly, population
+was of medium high importance, leading us to belive that logistics might be a big part of wasted doses and larger states might have more 
+trouble getting their doses out than smaller states.
 
 ## Conclusion
 - Waste amounts seem excessive for densely populated states. But with a higher population comes a bigger chance of more doses being used; meaning the CDC was just being prepared when distributing the amounts they did. 
