@@ -83,6 +83,8 @@ Run at a couple other values it never dipped lower than 96% accuracy. The most u
 and total vaccinations per hundred, with a lot of the boost and national data not being as useful to the model. Surprisingly, population
 was of medium high importance, leading us to belive that logistics might be a big part of wasted doses and larger states might have more 
 trouble getting their doses out than smaller states.
+![image](https://user-images.githubusercontent.com/111723067/217973931-ffda0c70-7562-4cf2-9bec-0be772354ca4.png)
+
 
 ## Conclusion
 - Waste amounts seem excessive for densely populated states. But with a higher population comes a bigger chance of more doses being used; meaning the CDC was just being prepared when distributing the amounts they did. 
